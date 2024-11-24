@@ -14,17 +14,18 @@ import 'api_root/api_root.dart' as api_root;
 import 'api_user/api_user.dart' as api_user;
 import 'widget/updata.dart';
 
-const reportDiscussionNumber = 4497;
-const owner = 'share121';
+const reportDiscussionNumber = 1;
+const owner = 'zxalter1';
 const repo = 'inter-knot';
-const collaborators = ['VacuolePaoo', 'nostalgiatan'];
+const collaborators = [];
 const githubLink = 'https://github.com/$owner/$repo';
-const discordLink = 'https://dc.inot.top';
-const docLink = 'https://d.inot.top/';
+const originalAuthorLink = 'https://github.com/share121/inter-knot';
+// const discordLink = 'https://baidu.com/';
+// const docLink = 'https://baidu.com/';
 const issuesLink = '$githubLink/issues';
 const releasesLink = '$githubLink/releases';
-const advancedSearchTipsLink =
-    'https://docs.github.com/zh/search-github/searching-on-github/searching-discussions';
+// const advancedSearchTipsLink =
+//     'https://docs.github.com/zh/search-github/searching-on-github/searching-discussions';
 
 class Controller extends GetxController {
   late final SharedPreferencesWithCache pref;
@@ -97,10 +98,11 @@ class Controller extends GetxController {
     });
     if (c.isLogin()) {
       api_user.getAllReports(reportDiscussionNumber).then(report.call);
-      api_user.getNewVersion().then(getVersionHandle);
+      //!!!todo
+      // api_user.getNewVersion().then(getVersionHandle);
     } else {
       api_root.getAllReports(reportDiscussionNumber).then(report.call);
-      api_root.getNewVersion().then(getVersionHandle);
+      // api_root.getNewVersion().then(getVersionHandle);
     }
   }
 

@@ -8,8 +8,8 @@ import '../common.dart';
 import '../data.dart';
 import 'history_page.dart';
 import 'liked_page.dart';
-import '../api_root/api_root.dart' as api_root;
-import '../api_user/api_user.dart' as api_user;
+// import '../api_root/api_root.dart' as api_root;
+// import '../api_user/api_user.dart' as api_user;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -58,39 +58,45 @@ class HomePage extends StatelessWidget {
               );
             },
           ),
-          FutureBuilder(
-            future: c.isLogin()
-                ? api_user.getNewVersion()
-                : api_root.getNewVersion(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                final fullVer = 'v${snapshot.data!.version}';
-                return ListTile(
-                  onTap: () => launchUrlString(releasesLink),
-                  title: Text('Latest version'.tr),
-                  subtitle: Text(fullVer),
-                );
-              }
-              if (snapshot.hasError) {
-                return ListTile(
-                  title: Text('Latest version'.tr),
-                  onTap: () => launchUrlString(releasesLink),
-                  subtitle: Text(snapshot.error.toString()),
-                );
-              }
-              return ListTile(
-                onTap: () => launchUrlString(releasesLink),
-                title: Text('Latest version'.tr),
-                subtitle: const LinearProgressIndicator(),
-              );
-            },
+          ListTile(
+            onTap: () {},
+            title: Text('Latest version'.tr),
+            subtitle: Text('custom.disable_latest_version'.tr),
           ),
+          // FutureBuilder(
+          //   future: c.isLogin()
+          //       ? api_user.getNewVersion()
+          //       : api_root.getNewVersion(),
+          //   future: () => pass
+          //   builder: (context, snapshot) {
+          //     if (snapshot.hasData) {
+          //       final fullVer = 'v${snapshot.data!.version}';
+          //       return ListTile(
+          //         onTap: () => launchUrlString(releasesLink),
+          //         title: Text('Latest version'.tr),
+          //         subtitle: Text(fullVer),
+          //       );
+          //     }
+          //     if (snapshot.hasError) {
+          //       return ListTile(
+          //         title: Text('Latest version'.tr),
+          //         onTap: () => launchUrlString(releasesLink),
+          //         subtitle: Text(snapshot.error.toString()),
+          //       );
+          //     }
+          //     return ListTile(
+          //       onTap: () => launchUrlString(releasesLink),
+          //       title: Text('Latest version'.tr),
+          //       subtitle: const LinearProgressIndicator(),
+          //     );
+          //   },
+          // ),
           Obx(() {
             return RadioListTile(
               value: true,
               groupValue: c.isLogin(),
               title: Text('User Api'.tr),
-              onChanged: c.isLogin.call,
+              onChanged: null,
             );
           }),
           Obx(() {
@@ -101,15 +107,15 @@ class HomePage extends StatelessWidget {
               onChanged: c.isLogin.call,
             );
           }),
-          ListTile(
-            onTap: () async {
-              await c.pref.remove('root_token');
-              await c.pref.remove('access_token');
-              await c.pref.remove('refresh_token');
-              Get.rawSnackbar(message: 'Login out successfully'.tr);
-            },
-            title: Text('Login out'.tr),
-          ),
+          // ListTile(
+          //   onTap: () async {
+          //     await c.pref.remove('root_token');
+          //     await c.pref.remove('access_token');
+          //     await c.pref.remove('refresh_token');
+          //     Get.rawSnackbar(message: 'Login out successfully'.tr);
+          //   },
+          //   title: Text('Login out'.tr),
+          // ),
           ListTile(
             leading: Icon(MdiIcons.github),
             title: const Text('Github'),
@@ -117,23 +123,29 @@ class HomePage extends StatelessWidget {
             subtitle: const Text(githubLink),
           ),
           ListTile(
-            leading: const Icon(Icons.discord),
-            title: const Text('Discord'),
-            onTap: () => launchUrlString(discordLink),
-            subtitle: const Text(discordLink),
+            leading: Icon(MdiIcons.github),
+            title: Text('custom.original_author'.tr),
+            onTap: () => launchUrlString(originalAuthorLink),
+            subtitle: const Text(originalAuthorLink),
           ),
-          ListTile(
-            leading: const Icon(Icons.book),
-            title: Text('Documentation'.tr),
-            onTap: () => launchUrlString(docLink),
-            subtitle: const Text(docLink),
-          ),
-          ListTile(
-            leading: const Icon(Icons.search),
-            title: Text('Advanced Search Tips'.tr),
-            onTap: () => launchUrlString(advancedSearchTipsLink),
-            subtitle: const Text(advancedSearchTipsLink),
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.discord),
+          //   title: const Text('Discord'),
+          //   onTap: () => launchUrlString(discordLink),
+          //   subtitle: const Text(discordLink),
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.book),
+          //   title: Text('Documentation'.tr),
+          //   onTap: () => launchUrlString(docLink),
+          //   subtitle: const Text(docLink),
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.search),
+          //   title: Text('Advanced Search Tips'.tr),
+          //   onTap: () => launchUrlString(advancedSearchTipsLink),
+          //   subtitle: const Text(advancedSearchTipsLink),
+          // ),
         ],
       ),
     );

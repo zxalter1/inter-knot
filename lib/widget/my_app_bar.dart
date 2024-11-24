@@ -148,10 +148,10 @@ class MyAppBar extends StatelessWidget {
                         },
                       );
                     }),
-                    MyTab(
-                      text: 'Toolkit'.tr,
-                      onTap: () => c.animateToPage(1),
-                    ),
+                    // MyTab(
+                    //   text: 'Toolkit'.tr,
+                    //   onTap: () => c.animateToPage(1),
+                    // ),
                     MyTab(
                       text: 'Home'.tr,
                       onTap: () => c.animateToPage(2),
