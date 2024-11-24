@@ -17,6 +17,7 @@ import 'widget/updata.dart';
 const reportDiscussionNumber = 1;
 const owner = 'zxalter1';
 const repo = 'inter-knot';
+const maintainer = 'Lavizio';
 const collaborators = [];
 const githubLink = 'https://github.com/$owner/$repo';
 const originalAuthorLink = 'https://github.com/share121/inter-knot';
@@ -54,7 +55,7 @@ class Controller extends GetxController {
 
   bool canVisit(Discussion discussion, bool isPin) =>
       report[discussion.number] == null ||
-      [owner, ...collaborators].contains(discussion.author.login) ||
+      [maintainer, ...collaborators].contains(discussion.author.login) ||
       isPin ||
       report[discussion.number]!.length < 6;
 
@@ -197,4 +198,4 @@ class Controller extends GetxController {
 }
 
 bool canReport(Discussion discussion, bool isPin) =>
-    ![owner, ...collaborators].contains(discussion.author.login) && !isPin;
+    ![maintainer, ...collaborators].contains(discussion.author.login) && !isPin;

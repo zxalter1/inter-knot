@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widget/discussions_grid.dart';
 import '../common.dart';
+import '../data.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -78,7 +79,7 @@ class _SearchPageState extends State<SearchPage>
             iconSize: 32,
             padding: const EdgeInsets.all(12),
             onPressed: () => launchUrlString(
-                'https://github.com/share121/inter-knot/discussions/new/choose'),
+                'https://github.com/$owner/$repo/discussions/new/choose'),
             icon: Icon(MdiIcons.pen),
           ),
         ),

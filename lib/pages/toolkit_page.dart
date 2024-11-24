@@ -16,7 +16,7 @@ class ToolkitPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '还没做好呢😎',
+                  '嘻嘻😎',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],

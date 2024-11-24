@@ -55,7 +55,7 @@ class Replies extends StatelessWidget {
                         MyChip('landlord'.tr),
                       if (reply.author.login == comment.author.login)
                         MyChip('layer master'.tr),
-                      if (reply.author.login == owner)
+                      if (reply.author.login == maintainer)
                         MyChip('Founder of Inter-Knot'.tr),
                       if (collaborators.contains(reply.author.login))
                         MyChip('Inter-Knot collaborator'.tr),

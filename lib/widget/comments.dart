@@ -54,7 +54,7 @@ class Comments extends StatelessWidget {
                         children: [
                           if (comment.author.login == discussion.author.login)
                             MyChip('landlord'.tr),
-                          if (comment.author.login == owner)
+                          if (comment.author.login == maintainer)
                             MyChip('Founder of Inter-Knot'.tr),
                           if (collaborators.contains(comment.author.login))
                             MyChip('Inter-Knot collaborator'.tr),

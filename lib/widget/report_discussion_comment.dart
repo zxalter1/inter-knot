@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../common.dart';
+import '../data.dart';
 
 class ReportDiscussionComment extends StatelessWidget {
   const ReportDiscussionComment({super.key});
@@ -25,7 +26,7 @@ class ReportDiscussionComment extends StatelessWidget {
                     text: '#$key',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => launchUrlString(
-                          'https://github.com/share121/inter-knot/discussions/$key'),
+                          'https://github.com/$owner/$repo/discussions/$key'),
                     style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: Theme.of(context).colorScheme.primary,

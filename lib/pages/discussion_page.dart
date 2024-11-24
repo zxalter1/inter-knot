@@ -164,7 +164,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
                                             color: const Color(0xff808080),
                                           ),
                                           if (widget.discussion.author.login ==
-                                              owner)
+                                              maintainer)
                                             MyChip('Founder of Inter-Knot'.tr),
                                           if (collaborators.contains(
                                               widget.discussion.author.login))
@@ -349,7 +349,7 @@ class RightBox extends StatelessWidget {
                     child: ClickRegion(
                       onTap: () {
                         Future.delayed(3.s).then((_) => launchUrlString(
-                            'https://github.com/share121/inter-knot/discussions/$reportDiscussionNumber#new_comment_form'));
+                            'https://github.com/$owner/$repo/discussions/$reportDiscussionNumber#new_comment_form'));
                         copyText(
                           '违规讨论：#${discussion.number}\n举报原因：',
                           title: 'Report template copied'.tr,
